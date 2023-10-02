@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test my-app Widgets presence 1`] = `
+<h1>
+  Hello world!
+</h1>
+`;
+
+exports[`Test my-app Widgets presence 2`] = `
+<button
+  class="buttonClass"
+  data-testid="button-test-id"
+  style="color: red;"
+>
+  Click!
+</button>
+`;
+
+exports[`Test my-app Widgets presence 3`] = `
+<input
+  data-testid="input-test-id"
+  placeholder="input value..."
+  type="text"
+/>
+`;
