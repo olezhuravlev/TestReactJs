@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {useEffect, useState} from 'react';
 import axios from "axios";
+import {Link} from "react-router-dom";
 
 
 export const Users = () => {
@@ -17,8 +18,13 @@ export const Users = () => {
     }, []);
 
     return (
-        <div>
-            {users.map(user => <div key={user.id} data-testid="user-item-test-id">{user.name}</div>)}
+        <div data-testid={'users-page-testid'}>
+            {users.map(user => <Link
+                to='/users/${user.id}'
+                key={user.id}
+                data-testid='user-item-test-id'>
+                {user.name}
+            </Link>)}
         </div>
     );
 };
