@@ -1,21 +1,19 @@
-import {fireEvent, render, screen} from '@testing-library/react';
+import {fireEvent, screen} from '@testing-library/react';
 import App from './App';
 import userEvent from "@testing-library/user-event";
-import {MemoryRouter} from "react-router-dom";
+import {renderTestAppNoInitsNoAppRouter} from "./tests/helpers/renderTestAppNoInitsNoAppRouter";
 
 describe("Test my-app", () => {
 
     test('Widgets presence', () => {
 
-        render(<MemoryRouter>
-            <App/>
-        </MemoryRouter>);
+        renderTestAppNoInitsNoAppRouter(<App/>);
 
         const hello = screen.getByText(/hello world/i);
         expect(hello).toBeInTheDocument();
         // expect(hello).toMatchSnapshot();
 
-        const button = screen.getByRole("button");
+        const button = screen.getByTestId('button-test-id');
         expect(button).toBeInTheDocument();
         // expect(button).toMatchSnapshot();
 
@@ -28,24 +26,20 @@ describe("Test my-app", () => {
 
     test('Delayed widgets presence', async () => {
 
-        render(<MemoryRouter>
-            <App/>
-        </MemoryRouter>);
+        renderTestAppNoInitsNoAppRouter(<App/>);
 
         screen.debug();
         const dataElement = await screen.findByText(/data ready/i);
         expect(dataElement).toBeInTheDocument();
         screen.debug();
 
-        const button = screen.getByRole("button");
+        const button = screen.getByTestId('button-test-id');
         expect(button).toHaveStyle({color: 'red'});
     });
 
     it('CLICK EVENT', () => {
 
-        render(<MemoryRouter>
-            <App/>
-        </MemoryRouter>);
+        renderTestAppNoInitsNoAppRouter(<App/>);
 
         const button = screen.getByTestId("button-test-id");
         expect(button).toBeInTheDocument();
@@ -57,9 +51,7 @@ describe("Test my-app", () => {
 
     it('INPUT EVENT with fireEvent', () => {
 
-        render(<MemoryRouter>
-            <App/>
-        </MemoryRouter>);
+        renderTestAppNoInitsNoAppRouter(<App/>);
 
         const input = screen.getByTestId('input-test-id');
         expect(input).toBeInTheDocument();
@@ -81,9 +73,7 @@ describe("Test my-app", () => {
 
     it('INPUT EVENT with userEvent', () => {
 
-        render(<MemoryRouter>
-            <App/>
-        </MemoryRouter>);
+        renderTestAppNoInitsNoAppRouter(<App/>);
 
         const input = screen.getByTestId('input-test-id');
         expect(input).toBeInTheDocument();

@@ -2,13 +2,12 @@ import {render, screen} from '@testing-library/react';
 import App from './App';
 import userEvent from "@testing-library/user-event";
 import {MemoryRouter} from "react-router-dom";
+import {renderTestAppNoInitsNoAppRouter} from "./tests/helpers/renderTestAppNoInitsNoAppRouter";
 
 describe("Test Router", () => {
     it('Test', async () => {
 
-        render(<MemoryRouter>
-            <App/>
-        </MemoryRouter>);
+        renderTestAppNoInitsNoAppRouter(<App/>);
 
         screen.debug();
         const mainLink = screen.getByTestId('main-link-testid');

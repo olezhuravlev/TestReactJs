@@ -1,13 +1,14 @@
-import {renderWithRouter} from "../../tests/helpers/renderWithRouter";
 import Navbar from "./Navbar";
 import {screen} from '@testing-library/react';
 import userEvent from "@testing-library/user-event";
+import {renderTestAppNoInits} from "../../tests/helpers/renderTestAppNoInits";
+import React from "react";
 
 describe('Navbar test', () => {
 
         it('Test About page link', async () => {
 
-            renderWithRouter(<Navbar/>);
+            renderTestAppNoInits(<Navbar/>);
 
             const aboutLink = screen.getByTestId('about-link-testid');
             expect(aboutLink).toBeInTheDocument();
@@ -19,7 +20,7 @@ describe('Navbar test', () => {
 
         it('Test Main page link', async () => {
 
-            renderWithRouter(<Navbar/>);
+            renderTestAppNoInits(<Navbar/>);
 
             const mainLink = screen.getByTestId('main-link-testid');
             expect(mainLink).toBeInTheDocument();
@@ -31,7 +32,7 @@ describe('Navbar test', () => {
 
         it('Test Users page link', async () => {
 
-            renderWithRouter(<Navbar/>);
+            renderTestAppNoInits(<Navbar/>);
 
             const usersLink = screen.getByTestId('users-link-testid');
             expect(usersLink).toBeInTheDocument();
