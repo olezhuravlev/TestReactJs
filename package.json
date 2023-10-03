@@ -65,7 +65,8 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js"
+    "test": "node scripts/test.js",
+    "wdio": "wdio run ./wdio.conf.js"
   },
   "eslintConfig": {
     "extends": [
@@ -141,5 +142,11 @@
     "presets": [
       "react-app"
     ]
+  },
+  "devDependencies": {
+    "@wdio/cli": "^8.16.18",
+    "@wdio/local-runner": "^8.16.18",
+    "@wdio/mocha-framework": "^8.16.17",
+    "@wdio/spec-reporter": "^8.16.17"
   }
 }
