@@ -7,6 +7,7 @@ const Navbar = () => {
             <Link to='' data-testid='main-link-testid'>Main</Link>
             <Link to='/about' data-testid='about-link-testid'>About</Link>
             <Link to='/users' data-testid='users-link-testid'>Users</Link>
+            <Link to='/users-test' data-testid='users-link-testid'>Users-Test</Link>
             <Link to='/hello' data-testid='hello-link-testid'>Hello!</Link>
         </div>
     );
