@@ -70,12 +70,15 @@
     "wdio": "wdio run ./wdio.conf.js",
     "test:e2e": "npx wdio run ./wdio.conf.js",
     "test:e2e:hello": "npx wdio run ./wdio.conf.js --spec hello.e2e.js",
-    "test:e2e:users": "DEBUG=true npx wdio run ./wdio.conf.js --spec users.e2e.js"
+    "test:e2e:users": "DEBUG=true npx wdio run ./wdio.conf.js --spec users.e2e.js",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "eslintConfig": {
     "extends": [
       "react-app",
-      "react-app/jest"
+      "react-app/jest",
+      "plugin:storybook/recommended"
     ]
   },
   "browserslist": {
@@ -148,11 +151,39 @@
     ]
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.22.20",
+    "@babel/preset-react": "^7.22.15",
+    "@storybook/addon-essentials": "^7.4.6",
+    "@storybook/addon-interactions": "^7.4.6",
+    "@storybook/addon-links": "^7.4.6",
+    "@storybook/addon-onboarding": "^1.0.8",
+    "@storybook/blocks": "^7.4.6",
+    "@storybook/react": "^7.4.6",
+    "@storybook/react-webpack5": "^7.4.6",
+    "@storybook/testing-library": "^0.2.2",
     "@testing-library/react": "^14.0.0",
     "@vitejs/plugin-react": "^4.1.0",
     "@wdio/cli": "^8.16.18",
     "@wdio/local-runner": "^8.16.18",
     "@wdio/mocha-framework": "^8.16.17",
-    "@wdio/spec-reporter": "^8.16.17"
+    "@wdio/spec-reporter": "^8.16.17",
+    "eslint-plugin-storybook": "^0.6.14",
+    "loki": "^0.32.0",
+    "storybook": "^7.4.6"
+  },
+  "loki": {
+    "configurations": {
+      "chrome.laptop": {
+        "target": "chrome.docker",
+        "width": 1366,
+        "height": 768,
+        "deviceScaleFactor": 1,
+        "mobile": false
+      },
+      "chrome.iphone7": {
+        "target": "chrome.docker",
+        "preset": "iPhone 7"
+      }
+    }
   }
 }
